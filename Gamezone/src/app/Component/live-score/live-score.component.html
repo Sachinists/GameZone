@@ -1,0 +1,37 @@
+<app-navbar></app-navbar>
+<div class="container w" *ngIf="liveGames">
+  <div class="heading">
+    Live Now
+  </div>
+  <div>
+    <mat-card class="example-card" *ngFor="let liveGames of liveGames" style="margin: 20px;">
+      <mat-card-header>
+        <mat-card-title>
+          <span class="h">{{getTeamFullNameById(liveGames.hTeam.teamId)}} </span> vs
+          <span class="v">{{getTeamFullNameById(liveGames.vTeam.teamId)}}</span>
+        </mat-card-title>
+        <mat-card-subtitle>{{liveGames.arena.name}}, {{liveGames.arena.city}} {{liveGames.arena.country}}</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <div>
+          <div class="z">
+            <span class="h">{{liveGames.hTeam.score}}</span> - <span class="v">{{liveGames.vTeam.score}}</span>
+          </div>
+          <div class="col-6" style="display: inline-block;padding-left: 16px;width: 50%;">
+            <div class="a">{{liveGames.nugget.text}}</div>
+            <div>Host: {{getTeamFullNameById(liveGames.hTeam.teamId)}}</div>
+            <div>Opponent: {{getTeamFullNameById(liveGames.vTeam.teamId)}}</div>
+            <div>Venue: {{liveGames.arena.name}}, {{liveGames.arena.city}} {{liveGames.arena.country}}</div>
+            <div>StartTime: {{getProperTime(liveGames.startTimeUTC)}}</div>
+            <div>EndTime: {{getProperTime(liveGames.endTimeUTC)}}</div>
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
+<div *ngIf="!liveGames" class="w container">
+  <div class="alert alert-danger">
+    <strong>Sorry!</strong> No live match played now.
+  </div>
+</div>

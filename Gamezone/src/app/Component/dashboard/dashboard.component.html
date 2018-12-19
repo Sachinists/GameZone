@@ -1,0 +1,28 @@
+<app-admin-nav></app-admin-nav>
+<div class="container  f" *ngIf="show">
+  <div style="text-align:center;">
+    <img src="../../../assets/logo.png" alt="Avatar" style="width:100px;height:100px;">
+  </div>
+  <div class="h">
+    <h3>Please Enter Your Details</h3>
+  </div>
+  <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label>City:</label>
+      <input type="text" formControlName="city" class="form-control" required>
+    </div>
+    <div class="form-group">
+      <label>State:</label>
+      <input type="text" formControlName="state" class="form-control" required>
+    </div>
+    <div class="form-group">
+      <label>Country:</label>
+      <input type="text" formControlName="country" class="form-control" required>
+    </div>
+    <div class="form-group">
+      <label> Phone Number:</label>
+      <input type="text" formControlName="phone" class="form-control" required placeholder="Only digits" pattern="[0-9]{10}">
+    </div>
+    <button type="submit" [disabled]="!profileForm.valid" class="btn btn-primary btn-lg">Submit</button>
+  </form>
+</div>

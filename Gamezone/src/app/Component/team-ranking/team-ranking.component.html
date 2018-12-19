@@ -1,0 +1,30 @@
+<app-navbar></app-navbar>
+<div *ngIf="show" class="container w">
+  <div class="heading">List of all teams</div>
+  <div>
+    <table class="table table-bordered table-striped table-hover">
+      <thead>
+        <tr>
+          <th>Rank</th>
+          <th>Full Name</th>
+          <th>City</th>
+          <th>Average</th>
+          <th>Code</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let team of tt | paginate: { itemsPerPage: 10, currentPage: p } ;index as i">
+          <td>{{team.rank}}</td>
+          <td>{{team.fullName}}</td>
+          <td>{{team.city}}</td>
+          <td>{{team.avg}}</td>
+          <td>{{team.tricode}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="controls">
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+  </div>
+</div>

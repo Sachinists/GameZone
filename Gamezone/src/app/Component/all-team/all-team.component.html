@@ -1,0 +1,36 @@
+<app-navbar></app-navbar>
+<div *ngIf="show" class="container w">
+	<div class="heading">List of all teams</div>
+	<div>
+		<table class="table table-bordered table-striped table-hover">
+			<thead>
+				<tr>
+					<th>Code</th>
+					<th>Full Name</th>
+					<th>City</th>
+					<th>Alt City Name</th>
+					<th>Nickname</th>
+					<th>Favourite</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr *ngFor="let user of standardList;index as i">
+					<td>{{user.tricode}}</td>
+					<td>{{user.fullName}}</td>
+					<td>{{user.city}}</td>
+					<td>{{user.altCityName}}</td>
+					<td>{{user.nickname}}</td>
+					<td>
+						<button class="btn btn-small btn-success" 
+						 [disabled]="disabledList[i]" (click)="addToFav(i,p)">Add	Favourite</button>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+ <!-- <div class="controls">
+      <pagination-controls (pageChange)="p = $event"></pagination-controls>
+      | paginate: { itemsPerPage: 8, currentPage: p }
+  </div>  -->
+</div>

@@ -1,0 +1,60 @@
+CREATE SCHEMA Test
+use Test
+drop table SignIn;
+CREATE TABLE SignIn(
+		id varchar(25) primary key NOT NULL,
+		email varchar(100) NOT NULL,
+		image varchar(200),
+		name varchar(50) NOT NULL,
+		provider varchar(25),
+		token text,
+        city varchar(40),
+        state varchar(40),
+        country varchar(40),
+        phone varchar(40),
+        secondPage varchar(10),
+        blocked varchar(10)
+   );
+
+insert into signin values ('12343','dev','dev','dev','dev','dev','dev','dev','dev','dev','dev','dev')
+select * from SignIn
+
+select * from FavTeam
+select * from LookupTable
+update SignIn set blocked = 'false' where id = '1391208581015505'
+drop table LookupTable;
+drop table FavTeam;
+CREATE TABLE FavTeam(
+	teamId int(10) primary key NOT NULL,
+	city varchar(100) NOT NULL,
+    altCityName varchar(100) NOT NULL,
+    fullName varchar(100) NOT NULL,
+    tricode varchar(100) NOT NULL
+);
+create table LookupTable(
+	userID varchar(25) not null,
+    favTeamId int(10) not null
+);
+drop table notification;
+create table notification(
+	nID int(10) primary key NOT NULL,
+    message varchar(255) NOT NULL,
+    userID varchar(25) NOT NULL,
+    notifyDate varchar(100) NOT NULL,
+    seen boolean,
+    gameId varchar(25) NOT NULL
+);
+
+select * from notification;
+drop table chat;
+create table chat(
+	cID int(10) primary key NOT NULL,
+	sender varchar(50) NOT NULL,
+    sID varchar(50) NOT NULL,
+    dateOfSending varchar(100) NOT NULL,
+    teamId int(10) NOT NULL,
+    message varchar(2550) NOT NULL,
+    readUnread boolean
+);
+select * from chat;
+insert into chat value(17,'Suman','151389242505062','8:31:10 PM 12/2/2018',1610612745,'i fifth',0)

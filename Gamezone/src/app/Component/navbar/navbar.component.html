@@ -1,0 +1,74 @@
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+  <a class="navbar-brand" routerLink="/user">
+    <img src="../../../assets/logo.png" width="50" height="50" alt="">
+  </a>
+  <a class="navbar-brand" routerLink="/user">GameZone</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02"
+    aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div *ngIf="showTabs" class="collapse navbar-collapse" id="navbarTogglerDemo02">
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+      <li class="nav-item active">
+        <a class="nav-link" routerLink="/teamRanking">Team Ranking<span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" routerLink="/allTeam">Add to Favorite<span class="sr-only"></span></a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" routerLink="/details">Team Details<span class="sr-only"></span></a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" routerLink="/liveScore">Live Scores<span class="sr-only"></span></a>
+      </li>
+      <li class="nav-item active">
+          <a class="nav-link" routerLink="/chat">Group Chat<span class="sr-only"></span></a>
+        </li>
+    </ul>
+
+
+    <ul class="nav navbar-nav navbar-right ww">
+      <li class="dropdown">
+        <a data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+          <!-- <span><i class=" qq fa fa-bell" style="font-size:24px"></i></span> -->
+          <div class="notification-icon">
+            <span class=" qq fa fa-bell" style="font-size:24px"></span>
+            <div *ngIf="nl" style="float:right"><span class="badge">{{notification.length}}</span></div>
+        </div>
+        </a>
+        <ul class="ee dropdown-menu notify-drop dropdown-menu-right">
+          <div class="notify-drop-title" style="margin-bottom: 20px;">
+            <div class="row">
+              <div class="col-md-6 col-sm-6 col-xs-6">Notification</div>
+              <div class="col-md-6 col-sm-6 col-xs-6 text-right"><a href="" class="rIcon allRead" data-tooltip="tooltip"
+                  data-placement="bottom" title="tümü okundu."><i style="color:black" class="fa fa-dot-circle-o"></i></a></div>
+            </div>
+          </div>
+          <!-- end notify title -->
+          <!-- notify content -->
+          <div *ngIf="nl" class="drop-content">
+            <li *ngFor="let notification of notification">
+              <div>
+                <ul style="padding-left:20px;"><li style="list-style-type: disc;">{{notification.message}}</li></ul>
+              </div>
+            </li>
+          </div>
+          <div *ngIf="!nl" class="drop-content">
+            <li>
+              <div>
+                <ul style="padding-left:20px;"><li style="list-style-type: disc;">Sorry! there is no new notification now.</li></ul>
+              </div>
+            </li>
+          </div>
+          <div class="asd notify-drop-footer text-center">
+            <a style="text-decoration: none;"(click)="markAllNotificationAsRead()"><i class="fa fa-eye"></i>Mark all as read</a>
+          </div>
+        </ul>
+      </li>
+    </ul>
+
+    <form class="form-inline my-2 my-lg-0">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="button" (click)="logout()">Logout</button>
+    </form>
+  </div>
+</nav>

@@ -1,0 +1,52 @@
+<app-navbar></app-navbar>
+<div *ngIf="ccc" class="container">
+  <div style="text-align: center;">
+    <mat-form-field style="width: 80%;">
+      <mat-select [(value)]="selected" (selectionChange)="doSomething($event)">
+        <mat-option>None</mat-option>
+        <mat-option *ngFor="let fav of favouriteTeamList" value={{fav.teamId}}>{{fav.fullName}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <div *ngIf="isSelected" class="messaging">
+    <div class="inbox_msg">
+      <div class="mesgs">
+        <div class="msg_history">
+          <div [ngClass]="{'incoming_msg': chat.sID != userID, 'outgoing_msg': chat.sID == userID}" *ngFor="let chat of chats">
+            <div [ngClass]="{'received_msg': chat.sID != userID, 'sent_msg': chat.sID == userID}">
+              <div [ngClass]="{'received_withd_msg': chat.sID != userID}">
+                <p style="padding: 20px;">
+                  {{chat.message}}
+                </p>
+                <span class="time_date">{{chat.sender}} | {{chat.dateOfSending}}</span>
+              </div>
+            </div>
+          </div>
+          <!-- <div class="outgoing_msg">
+            <div class="sent_msg">
+              <p style="padding: 20px;">
+                
+              </p>
+              <span class="time_date"> 11:01 AM | June 9</span>
+            </div>
+          </div> -->
+
+        </div>
+        <div class="type_msg">
+          <div class="input_msg_write">
+            <form ng-submit="sendMsg($event)" ng-controller="mycontroller">
+              <input type="text" [(ngModel)]="qweerty" class="write_msg" placeholder="Type a message" name="qweerty" />
+              <button class="msg_send_btn" type="button" (click)="sendMsg($event)"><i class="fa fa-paper-plane-o"
+                  aria-hidden="true"></i></button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="isNotSelected" class="container w">
+    <div class="alert alert-info">
+      <strong>Info!</strong> Please select any of your favourite to enter into chatroom.
+    </div>
+  </div>
+</div>

@@ -1,0 +1,14 @@
+.w{
+    max-width: 1200px;
+    margin: auto;
+    margin-top: 50px;
+    text-align: center;
+}
+.controls{
+    margin: 30px;
+}
+.heading{
+    font-size: 25px;
+    font-family: cursive;
+    margin: 20px;
+}

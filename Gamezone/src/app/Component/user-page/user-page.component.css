@@ -1,0 +1,43 @@
+.w{
+    max-width: 1200px;
+    margin: auto;
+    margin-top: 50px;
+    text-align: center;
+}
+.controls{
+    margin: 30px;
+}
+.heading{
+    font-size: 25px;
+    font-family: cursive;
+    margin: 20px;
+}
+.mat-card-header-text {
+    margin: 0 0px;
+}
+.a{
+    font-size: 20px;
+    font-family: cursive;
+    font-weight: 600;
+}
+.h{
+    color: green
+}
+.v{
+    color: red
+}
+.z{
+    font-size: -webkit-xxx-large;
+    display: inline-block;
+    padding-left: 16px;	
+    width: 50%;
+    float: left;
+    text-align: left;
+    padding-left: 90px;
+}
+.qq{
+    max-width: 1000px;
+    margin: auto;
+    margin-top: 80px;
+    text-align: center;
+}

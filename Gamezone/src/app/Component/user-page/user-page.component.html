@@ -1,0 +1,68 @@
+<app-navbar></app-navbar>
+<div class="container w" *ngIf="showFavTeam">
+	<div class="heading">
+		Favourtite Team
+	</div>
+	<div>
+		<table class="table table-bordered table-striped table-hover">
+			<thead>
+				<tr>
+					<th>Code</th>
+					<th>Full Name</th>
+					<th>City</th>
+					<th>Alt City Name</th>
+					<th>Tricode</th>
+					<th>Action</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr *ngFor="let favTeam of favouriteTeamList ;index as i">
+					<td>{{favTeam.teamId}}</td>
+					<td>{{favTeam.fullName}}</td>
+					<td>{{favTeam.city}}</td>
+					<td>{{favTeam.altCityName}}</td>
+					<td>{{favTeam.tricode}}</td>
+					<td>
+						<button class="btn btn-small btn-danger" (click)="removeFav(i)">Remove Favourite</button>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+<div class="container w" *ngIf="pp">
+	<div class="heading">
+		Results from previous games of Today
+	</div>
+	<div>
+		<mat-card class="example-card" *ngFor="let pastGames of pastGames ;index as i" style="margin: 20px;">
+			<mat-card-header>
+				<mat-card-title>
+					<span class="h">{{getTeamFullNameById(pastGames.hTeam.teamId)}} </span> vs
+					<span class="v">{{getTeamFullNameById(pastGames.vTeam.teamId)}}</span>
+				</mat-card-title>
+				<mat-card-subtitle>{{pastGames.arena.name}}, {{pastGames.arena.city}} {{pastGames.arena.country}}</mat-card-subtitle>
+			</mat-card-header>
+			<mat-card-content>
+				<div>
+					<div class="z">
+						<span class="h">{{pastGames.hTeam.score}}</span> - <span class="v">{{pastGames.vTeam.score}}</span>
+					</div>
+					<div class="col-6" style="display: inline-block;padding-left: 16px;width: 50%;">
+						<div class="a">{{pastGames.nugget.text}}</div>
+						<div>Host: {{getTeamFullNameById(pastGames.hTeam.teamId)}}</div>
+						<div>Opponent: {{getTeamFullNameById(pastGames.vTeam.teamId)}}</div>
+						<div>Venue: {{pastGames.arena.name}}, {{pastGames.arena.city}} {{pastGames.arena.country}}</div>
+						<div>StartTime: {{getProperTime(pastGames.startTimeUTC)}}</div>
+						<div>EndTime: {{getProperTime(pastGames.endTimeUTC)}}</div>
+					</div>
+				</div>
+			</mat-card-content>
+		</mat-card>
+	</div>
+</div>
+<div *ngIf="qq" class="container qq">
+	<div class="alert alert-danger">
+		<strong>Sorry!</strong> No matches has been played yet.
+	</div>
+</div>

@@ -1,0 +1,50 @@
+<app-navbar></app-navbar>
+<div class="container w">
+  <div class="row" style="margin:20px;" *ngFor="let qqq of qqq">
+    <div class="col-lg-4 col-md-4">
+      <mat-accordion>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              {{getTeam(qqq).fullName}} ({{getTeam(qqq).tricode}})
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <div>Nickname: {{getTeam(qqq).nickname}}</div>
+          <div>Alternate Name: {{getTeam(qqq).altCityName}}</div>
+          <div>NBA Franchise: {{getTeam(qqq).isNBAFranchise}}</div>
+          <div>All Star: {{getTeam(qqq).isAllStar}}</div>
+        </mat-expansion-panel>
+      </mat-accordion>
+    </div>
+    <div class="col-lg-4 col-md-4">
+      <mat-accordion>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              {{getTeam((qqq*3)+1).fullName}} ({{getTeam((qqq*3)+1).tricode}})
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <div>Nickname: {{getTeam(qqq).nickname}}</div>
+          <div>Alternate Name: {{getTeam(qqq).altCityName}}</div>
+          <div>NBA Franchise: {{getTeam(qqq).isNBAFranchise}}</div>
+          <div>All Star: {{getTeam(qqq).isAllStar}}</div>
+        </mat-expansion-panel>
+      </mat-accordion>
+    </div>
+    <div class="col-lg-4 col-md-4">
+      <mat-accordion>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              {{getTeam((qqq*3)+2).fullName}} ({{getTeam((qqq*3)+2).tricode}})
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <div>Nickname: {{getTeam(qqq).nickname}}</div>
+          <div>Alternate Name: {{getTeam(qqq).altCityName}}</div>
+          <div>NBA Franchise: {{getTeam(qqq).isNBAFranchise}}</div>
+          <div>All Star: {{getTeam(qqq).isAllStar}}</div>
+        </mat-expansion-panel>
+      </mat-accordion>
+    </div>
+  </div>
+</div>
